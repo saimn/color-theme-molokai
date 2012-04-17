@@ -13,9 +13,10 @@
       (molokai-fg "#f8f8f2")
       (molokai-fg-1 "#f8f8f0")
       (molokai-fg-2 "#bcbcbc")
+      (molokai-fg-3 "#aaaaaa")
 
       (molokai-bg+1 "#000000")
-      (molokai-bg "#1b1d1e")
+      (molokai-bg "#1b1e1f")
       (molokai-bg-1 "#232526")
       (molokai-bg-15 "#293739")
       (molokai-bg-2 "#333333")
@@ -25,12 +26,15 @@
       (molokai-red "#f92672")
       (molokai-red+1 "#960050")
       (molokai-orange "#fd971f")
+      (molokai-orange+1 "#cd5907")
+      (molokai-yellow+1 "#e4e500")
       (molokai-yellow "#e6db74")
       (molokai-yellow-1 "#c4be89")
       (molokai-green "#a6e22e")
       (molokai-cyan "#66d9ef")
       (molokai-blue "#5c7176")
       (molokai-magenta "#ae81ff"))
+
   (custom-theme-set-faces
    'molokai
    '(button ((t (:underline t))))
@@ -42,9 +46,8 @@
    `(cursor ((,class (:background ,molokai-red))))
    `(escape-glyph-face ((,class (:foreground ,molokai-yellow))))
    `(fringe ((,class (:foreground ,molokai-fg :background ,molokai-bg-1))))
-   `(header-line ((,class (:foreground ,molokai-yellow :background ,molokai-bg-1
-                           :box (:line-width -1 :style released-button)))))
-   `(highlight ((,class (:foreground ,molokai-bg+1 :background ,molokai-yellow-1))))
+   `(header-line ((,class (:foreground ,molokai-yellow :background ,molokai-bg-1 :box nil))))
+   `(highlight ((,class (:background ,molokai-bg-15))))
 
    ;;; compilation
    `(compilation-column-face ((,class (:foreground ,molokai-yellow))))
@@ -68,21 +71,20 @@
 
    ;; faces used by isearch
    `(isearch ((,class (:foreground ,molokai-bg :background ,molokai-orange))))
-   `(isearch-fail ((,class (:foreground ,molokai-fg+1 :background ,molokai-bg-2))))
-   `(lazy-highlight ((,class (:foreground ,molokai-blue :background ,molokai-bg+1))))
+   `(isearch-fail ((,class (:foreground ,molokai-bg :background ,molokai-red))))
+   `(lazy-highlight ((,class (:foreground ,molokai-bg :background ,molokai-yellow+1))))
 
    `(menu ((,class (:foreground ,molokai-fg :background ,molokai-bg))))
    `(minibuffer-prompt ((,class (:foreground ,molokai-cyan))))
-   `(mode-line
-     ((,class (:foreground ,molokai-fg :background ,molokai-bg-15
-                           :box (:line-width -1 :style released-button)))))
-   `(mode-line-buffer-id ((,class (:weight semi-bold))))
-   `(mode-line-inactive ((,class (:foreground ,molokai-fg :background ,molokai-bg-2
-                                              :box (:line-width -1 :color ,molokai-bg-1)))))
+   `(mode-line ((,class (:foreground ,molokai-fg :background ,molokai-orange+1 :box nil :weigth semi-bold))))
+   `(mode-line-buffer-id ((,class (:weight bold))))
+   `(mode-line-inactive ((,class (:foreground ,molokai-fg :background ,molokai-bg-2 :box nil))))
+   `(mode-line-highlight ((,class (:foreground ,molokai-fg :background ,molokai-orange :box nil))))
+   `(mode-line-emphasis ((,class (:foreground ,molokai-fg :background ,molokai-red :box nil))))
    `(region ((,class (:background ,molokai-bg-3))))
    `(secondary-selection ((,class (:background ,molokai-bg-15))))
    `(trailing-whitespace ((,class (:background ,molokai-red))))
-   `(vertical-border ((,class (:foreground ,molokai-fg))))
+   `(vertical-border ((,class (:foreground ,molokai-fg :background ,molokai-bg-1))))
 
    ;;; font lock
    `(font-lock-builtin-face ((,class (:foreground ,molokai-green))))
@@ -95,10 +97,12 @@
    `(font-lock-keyword-face ((,class (:foreground ,molokai-red :weight bold))))
    `(font-lock-negation-char-face ((,class (:weight bold))))
    `(font-lock-preprocessor-face ((,class (:foreground ,molokai-green))))
-   `(font-lock-string-face ((,class (:foreground ,molokai-yellow))))
+   `(font-lock-string-face ((,class (:foreground ,molokai-yellow :italic t))))
    `(font-lock-type-face ((,class (:foreground ,molokai-cyan))))
    `(font-lock-variable-name-face ((,class (:foreground ,molokai-red))))
    `(font-lock-warning-face ((,class (:foreground ,molokai-fg+1 :background ,molokai-bg-2 :weight bold :underline t))))
+   `(font-lock-regexp-grouping-backslash ((,class (:weight bold))))
+   `(font-lock-regexp-grouping-construct ((,class (:weight bold))))
 
    `(c-annotation-face ((,class (:inherit font-lock-constant-face))))
 
@@ -111,12 +115,16 @@
    `(ack-match ((,class (:foreground ,molokai-orange :background ,molokai-bg-1 :weigth bold))))
 
    ;; auto-complete
-   `(ac-candidate-face ((,class (:background ,molokai-bg :foreground "black"))))
-   `(ac-selection-face ((,class (:background ,molokai-blue :foreground ,molokai-fg))))
-   `(popup-tip-face ((,class (:background ,molokai-yellow-1 :foreground "black"))))
+   `(ac-candidate-face ((,class (:background ,molokai-bg-1 :foreground ,molokai-fg))))
+   `(ac-selection-face ((,class (:background ,molokai-green :foreground ,molokai-bg+1))))
+   `(popup-tip-face ((,class (:background ,molokai-bg-2 :foreground ,molokai-fg))))
    `(popup-scroll-bar-foreground-face ((,class (:background ,molokai-blue))))
    `(popup-scroll-bar-background-face ((,class (:background ,molokai-bg-1))))
-   `(popup-isearch-match ((,class (:background ,molokai-bg :foreground ,molokai-fg))))
+   `(popup-isearch-match ((,class (:background ,molokai-orange :foreground ,molokai-fg))))
+   `(icompletep-choices ((,class (:foreground ,molokai-red))))
+   `(icompletep-determined ((,class (:foreground ,molokai-green))))
+   `(icompletep-keys ((,class (:foreground ,molokai-red))))
+   `(icompletep-nb-candidates ((,class (:foreground ,molokai-magenta))))
 
    ;; diff
    `(diff-added ((,class (:foreground ,molokai-green :weight bold))))
@@ -143,8 +151,8 @@
    `(flymake-warnline ((,class (:foreground ,molokai-yellow-1 :weight bold :underline t))))
 
    ;; flyspell
-   `(flyspell-duplicate ((,class (:foreground ,molokai-yellow-1 :weight bold :underline t))))
-   `(flyspell-incorrect ((,class (:foreground ,molokai-red-1 :weight bold :underline t))))
+   `(flyspell-duplicate ((,class (:underline ,molokai-orange))))
+   `(flyspell-incorrect ((,class (:underline ,molokai-red-1 :weight bold))))
 
    ;; erc
    `(erc-action-face ((,class (:inherit erc-default-face))))
@@ -230,7 +238,7 @@
    `(gnus-x-face ((,class (:background ,molokai-fg :foreground ,molokai-bg))))
 
    ;; hl-line-mode
-   `(hl-line ((,class (:background ,molokai-bg-15))))
+   `(hl-line ((,class (:background ,molokai-bg-1))))
 
    ;; ido-mode
    `(ido-first-match ((,class (:foreground ,molokai-yellow :weight bold))))
@@ -238,11 +246,30 @@
    `(ido-subdir ((,class (:foreground ,molokai-yellow))))
 
    ;; linum-mode
-   `(linum ((,class (:foreground ,molokai-green :background ,molokai-bg))))
+   `(linum ((,class (:foreground ,molokai-fg-3 :background ,molokai-bg))))
 
    ;; magit
    `(magit-section-title ((,class (:foreground ,molokai-yellow :weight bold))))
    `(magit-branch ((,class (:foreground ,molokai-orange :weight bold))))
+
+   ;; markdown
+   `(markdown-header-face ((,class (:weight bold))))
+   `(markdown-header-face-1 ((,class (:weight bold :foreground ,molokai-cyan))))
+   `(markdown-header-face-2 ((,class (:weight bold :foreground ,molokai-red))))
+   `(markdown-header-face-3 ((,class (:weight bold :foreground ,molokai-green))))
+   `(markdown-header-face-4 ((,class (:foreground ,molokai-magenta))))
+   `(markdown-header-face-5 ((,class (:foreground ,molokai-yellow))))
+   `(markdown-header-face-6 ((,class (:foreground ,molokai-cyan))))
+   `(markdown-inline-code-face ((,class (:foreground ,molokai-cyan))))
+   `(markdown-list-face ((,class (:foreground ,molokai-green))))
+   `(markdown-blockquote-face ((,class (:slant italic))))
+   `(markdown-pre-face ((,class (:foreground ,molokai-magenta))))
+   `(markdown-link-face ((,class (:foreground ,molokai-cyan))))
+   `(markdown-reference-face ((,class (:foreground ,molokai-cyan))))
+   `(markdown-url-face ((,class (:foreground ,molokai-yellow))))
+   `(markdown-link-title-face ((,class (:foreground ,molokai-red))))
+   `(markdown-comment-face ((,class (:foreground ,molokai-blue))))
+   `(markdown-math-face ((,class (:foreground ,molokai-magenta :slant italic))))
 
    ;; message-mode
    `(message-cited-text-face ((,class (:inherit font-lock-comment))))
@@ -266,32 +293,29 @@
    `(nav-face-hfile ((,class (:foreground ,molokai-red-1))))
 
    ;; org-mode
-   `(org-agenda-date-today
-     ((,class (:foreground "white" :slant italic :weight bold))) t)
-   `(org-agenda-structure
-     ((,class (:inherit font-lock-comment-face))))
+   `(org-agenda-date-today ((,class (:foreground ,molokai-cyan :weight bold))) t)
+   `(org-agenda-structure ((,class (:inherit font-lock-comment-face))))
    `(org-archived ((,class (:foreground ,molokai-fg :weight bold))))
-   `(org-checkbox ((,class (:background ,molokai-bg+1 :foreground "white"
-                                   :box (:line-width 1 :style released-button)))))
+   `(org-checkbox ((,class (:background ,molokai-bg+1 :foreground "white" :box (:line-width 1 :style nil)))))
    `(org-date ((,class (:foreground ,molokai-blue :underline t))))
    `(org-deadline-announce ((,class (:foreground ,molokai-red-1))))
    `(org-done ((,class (:bold t :weight bold :foreground ,molokai-green))))
    `(org-formula ((,class (:foreground ,molokai-yellow-1))))
    `(org-headline-done ((,class (:foreground ,molokai-green))))
    `(org-hide ((,class (:foreground ,molokai-bg-1))))
-   `(org-level-1 ((,class (:foreground ,molokai-orange))))
-   `(org-level-2 ((,class (:foreground ,molokai-green))))
-   `(org-level-3 ((,class (:foreground ,molokai-blue))))
-   `(org-level-4 ((,class (:foreground ,molokai-yellow-1))))
+   `(org-level-1 ((,class (:foreground ,molokai-orange :height 1.2))))
+   `(org-level-2 ((,class (:foreground ,molokai-green :height 1.1))))
+   `(org-level-3 ((,class (:foreground ,molokai-magenta))))
+   `(org-level-4 ((,class (:foreground ,molokai-yellow))))
    `(org-level-5 ((,class (:foreground ,molokai-cyan))))
-   `(org-level-6 ((,class (:foreground ,molokai-green))))
-   `(org-level-7 ((,class (:foreground ,molokai-red-1))))
-   `(org-level-8 ((,class (:foreground ,molokai-blue))))
-   `(org-link ((,class (:foreground ,molokai-yellow-1 :underline t))))
+   `(org-level-6 ((,class (:foreground ,molokai-blue))))
+   `(org-level-7 ((,class (:foreground ,molokai-yellow-1))))
+   `(org-level-8 ((,class (:foreground ,molokai-orange+1))))
+   `(org-link ((,class (:foreground ,molokai-yellow :underline t))))
    `(org-scheduled ((,class (:foreground ,molokai-green))))
-   `(org-scheduled-previously ((,class (:foreground ,molokai-red-1))))
+   `(org-scheduled-previously ((,class (:foreground ,molokai-red+1))))
    `(org-scheduled-today ((,class (:foreground ,molokai-blue))))
-   `(org-special-keyword ((,class (:foreground ,molokai-yellow-1))))
+   `(org-special-keyword ((,class (:foreground ,molokai-yellow))))
    `(org-table ((,class (:foreground ,molokai-green))))
    `(org-tag ((,class (:bold t :weight bold))))
    `(org-time-grid ((,class (:foreground ,molokai-orange))))
@@ -312,11 +336,11 @@
    ;; rainbow-delimiters
    `(rainbow-delimiters-depth-1-face ((,class (:foreground ,molokai-cyan))))
    `(rainbow-delimiters-depth-2-face ((,class (:foreground ,molokai-yellow))))
-   `(rainbow-delimiters-depth-3-face ((,class (:foreground ,molokai-blue))))
+   `(rainbow-delimiters-depth-3-face ((,class (:foreground ,molokai-magenta))))
    `(rainbow-delimiters-depth-4-face ((,class (:foreground ,molokai-red+1))))
    `(rainbow-delimiters-depth-5-face ((,class (:foreground ,molokai-orange))))
-   `(rainbow-delimiters-depth-6-face ((,class (:foreground ,molokai-blue))))
-   `(rainbow-delimiters-depth-7-face ((,class (:foreground ,molokai-green))))
+   `(rainbow-delimiters-depth-6-face ((,class (:foreground ,molokai-green))))
+   `(rainbow-delimiters-depth-7-face ((,class (:foreground ,molokai-yellow+1))))
    `(rainbow-delimiters-depth-8-face ((,class (:foreground ,molokai-red-1))))
    `(rainbow-delimiters-depth-9-face ((,class (:foreground ,molokai-yellow-1))))
    `(rainbow-delimiters-depth-10-face ((,class (:foreground ,molokai-green))))
@@ -334,9 +358,17 @@
    `(rpm-spec-tag-face ((,class (:foreground ,molokai-blue))))
    `(rpm-spec-var-face ((,class (:foreground ,molokai-red))))
 
+   ;; restructured text
+   `(rst-level-6-face ((,class (:inherit default :height 1.1 :foreground ,molokai-cyan :background ,molokai-bg-2))))
+   `(rst-level-5-face ((,class (:inherit rst-level-6-face :foreground ,molokai-yellow))))
+   `(rst-level-4-face ((,class (:inherit rst-level-5-face :foreground ,molokai-magenta))))
+   `(rst-level-3-face ((,class (:inherit rst-level-4-face :weight bold :foreground ,molokai-green))))
+   `(rst-level-2-face ((,class (:inherit rst-level-3-face :weight bold :foreground ,molokai-red))))
+   `(rst-level-1-face ((,class (:inherit rst-level-2-face :weight bold :foreground ,molokai-cyan))))
+
    ;; show-paren
    `(show-paren-mismatch ((,class (:foreground ,molokai-red-1 :background ,molokai-bg :weight bold))))
-   `(show-paren-match ((,class (:foreground ,molokai-bg+1 :background ,molokai-orange :weight bold))))
+   `(show-paren-match ((,class (:foreground ,molokai-orange :background ,molokai-bg-3 :weight bold))))
 
    ;; SLIME
    `(slime-repl-inputed-output-face ((,class (:foreground ,molokai-red))))
@@ -354,7 +386,14 @@
    `(whitespace-space-after-tab ((,class (:background ,molokai-yellow :foreground ,molokai-red))))
 
    ;; which-func-mode
-   `(which-func ((,class (:foreground ,molokai-green)))))
+   `(which-func ((,class (:foreground ,molokai-green))))
+
+   ;; woman
+   `(woman-addition ((,class (:foreground ,molokai-magenta))))
+   `(woman-bold ((,class (:foreground ,molokai-red))))
+   `(woman-italic ((,class (:foreground ,molokai-green))))
+   `(woman-unknown ((,class (:foreground ,molokai-cyan))))
+   )
 
   ;;; custom theme variables
   (custom-theme-set-variables
@@ -372,46 +411,9 @@
 
 (provide-theme 'molokai)
 
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;; (css-selector ((t (:foreground "#F92672"))))
-;; (css-property ((t (:foreground "#66D9EF"))))
-;; (mode-line-mousable ((t (:foreground "#BCBCBC" :background "#000000"))))
-;; (mode-line-mousable-minor-mode ((t (:foreground "#BCBCBC" :background "#000000"))))
-;; (font-lock-regexp-grouping-backslash ((t (:weight bold))))
-;; (font-lock-regexp-grouping-construct ((t (:weight bold))))
-
-;; (icompletep-choices ((t (:foreground "#F92672"))))
-;; (icompletep-determined ((t (:foreground "#A6E22E"))))
-;; (icompletep-keys ((t (:foreground "#F92672"))))
-;; (icompletep-nb-candidates ((t (:foreground "#AE81FF"))))
-
-;; (markdown-italic-face ((t (:slant italic))))
-;; (markdown-bold-face ((t (:weight bold))))
-;; (markdown-header-face ((t (:weight normal))))
-;; (markdown-header-face-1 ((t (:foreground "#66D9EF"))))
-;; (markdown-header-face-2 ((t (:foreground "#F92672"))))
-;; (markdown-header-face-3 ((t (:foreground "#A6E22E"))))
-;; (markdown-header-face-4 ((t (:foreground "#AE81FF"))))
-;; (markdown-header-face-5 ((t (:foreground "#E6DB74"))))
-;; (markdown-header-face-6 ((t (:foreground "#66D9EF"))))
-;; (markdown-inline-code-face ((t (:foreground "#66D9EF"))))
-;; (markdown-list-face ((t (:foreground "#A6E22E"))))
-;; (markdown-blockquote-face ((t (:slant italic))))
-;; (markdown-pre-face ((t (:foreground "#AE81FF"))))
-;; (markdown-link-face ((t (:foreground "#66D9EF"))))
-;; (markdown-reference-face ((t (:foreground "#66D9EF"))))
-;; (markdown-url-face ((t (:foreground "#E6DB74"))))
-;; (markdown-link-title-face ((t (:foreground "#F92672"))))
-;; (markdown-comment-face ((t (:foreground "#5c7176"))))
-;; (markdown-math-face ((t (:foreground "#AE81FF" :slant italic))))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; (mumamo-background-chunk-major ((t (:background "#272822"))))
 ;; (mumamo-background-chunk-submode ((t (:background "#1B1D1E"))))
 
 ;; (widget-inactive-face ((t (:background "#ff0000"))))
-
-;; (woman-addition ((t (:foreground "#AE81FF"))))
-;; (woman-bold ((t (:foreground "#F92672"))))
-;; (woman-italic ((t (:foreground "#A6E22E"))))
-;; (woman-unknown ((t (:foreground "#66D9EF"))))
