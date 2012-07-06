@@ -417,3 +417,7 @@
 ;; (mumamo-background-chunk-submode ((t (:background "#1B1D1E"))))
 
 ;; (widget-inactive-face ((t (:background "#ff0000"))))
+
+;; Local Variables:
+;; eval: (rainbow-mode 1)
+;; End:
