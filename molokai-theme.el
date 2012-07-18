@@ -147,8 +147,9 @@
    `(eshell-ls-symlink ((,class (:foreground ,molokai-cyan :weight bold))))
 
    ;; flymake
-   `(flymake-errline ((,class (:foreground ,molokai-red-1 :weight bold :underline t))))
-   `(flymake-warnline ((,class (:foreground ,molokai-yellow-1 :weight bold :underline t))))
+   `(flymake-errline ((,class (:weight bold :underline ,molokai-red-1))))
+   `(flymake-warnline ((,class (:weight bold :underline ,molokai-yellow-1))))
+   `(flymake-infoline ((,class (:weight bold :underline ,molokai-green))))
 
    ;; flyspell
    `(flyspell-duplicate ((,class (:underline ,molokai-orange))))
