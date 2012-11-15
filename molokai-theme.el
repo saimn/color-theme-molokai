@@ -147,7 +147,7 @@
    `(eshell-ls-symlink ((,class (:foreground ,molokai-cyan :weight bold))))
 
    ;; flymake
-   `(flymake-errline ((,class (:weight bold :underline ,molokai-red-1))))
+   `(flymake-errline ((,class (:weight bold :underline ,molokai-red-1 :background ,molokai-bg-15))))
    `(flymake-warnline ((,class (:weight bold :underline ,molokai-yellow-1))))
    `(flymake-infoline ((,class (:weight bold :underline ,molokai-green))))
 
